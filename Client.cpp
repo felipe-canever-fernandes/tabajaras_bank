@@ -19,6 +19,9 @@ namespace tabajaras_bank
 		m_rate(validate_rate(rate))
 	{}
 
+	Client::~Client()
+	{}
+
 	std::string Client::name() const
 	{
 		return m_name;

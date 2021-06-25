@@ -8,6 +8,8 @@ namespace tabajaras_bank
 	class Client
 	{
 	public:
+		virtual ~Client();
+
 		std::string name() const;
 		void name(std::string const& name);
 
