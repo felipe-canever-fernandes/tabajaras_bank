@@ -8,7 +8,12 @@ namespace tabajaras_bank
 	class StandardClient : public Client
 	{
 	public:
-		StandardClient(std::string const& name, std::string const& id);
+		StandardClient
+		(
+			std::string const& name,
+			std::string const& id,
+			double balance
+		);
 	};
 }
 

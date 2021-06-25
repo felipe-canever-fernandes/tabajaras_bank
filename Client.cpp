@@ -6,8 +6,15 @@ using std::regex_match;
 
 namespace tabajaras_bank
 {
-	Client::Client(std::string const& name, std::string const& id):
-		m_name(validate_name(name)), m_id(validate_id(id))
+	Client::Client
+	(
+		std::string const& name,
+		std::string const& id,
+		double const balance
+	):
+		m_name(validate_name(name)),
+		m_id(validate_id(id)),
+		m_balance(validate_balance(balance))
 	{}
 
 	std::string Client::name() const
@@ -30,6 +37,16 @@ namespace tabajaras_bank
 		m_id = validate_id(id);
 	}
 
+	double Client::balance() const
+	{
+		return m_balance;
+	}
+
+	void Client::balance(double const balance)
+	{
+		m_balance = validate_balance(balance);
+	}
+
 	std::string Client::validate_name(std::string const& name)
 	{
 		// Check if not empty or only whitespace.
@@ -44,5 +61,11 @@ namespace tabajaras_bank
 		assert(regex_match(id, std::regex(R"(\d{11})")));
 
 		return id;
+	}
+
+	double Client::validate_balance(double const balance)
+	{
+		assert(balance >= 0);
+		return balance;
 	}
 }

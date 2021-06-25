@@ -7,8 +7,9 @@ int main()
 {
 	cout << "Client\n";
 
-	StandardClient felipe("Felipe", "12345678901");
+	StandardClient felipe("Felipe", "12345678901", 1000);
 
-	cout << "Name:\t" << felipe.name() << "\n";
-	cout << "ID:\t" << felipe.id() << "\n";
+	cout << "Name:\t\t" << felipe.name() << "\n";
+	cout << "ID:\t\t" << felipe.id() << "\n";
+	cout << "Balance:\t$ " << felipe.balance() << "\n";
 }
