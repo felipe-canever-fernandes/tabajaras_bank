@@ -1,16 +1,32 @@
 #include <iostream>
+using std::cin;
 using std::cout;
-#include "SupremeClient.hpp"
-using tabajaras_bank::SupremeClient;
 
 int main()
 {
-	cout << "Client\n";
+	while (true)
+	{
+		cout << "\t\tTABAJARA'S BANK\n";
 
-	SupremeClient felipe("Felipe", "12345678901", 250000);
+		cout << "\n";
 
-	cout << "Name:\t\t" << felipe.name() << "\n";
-	cout << "ID:\t\t" << felipe.id() << "\n";
-	cout << "Balance:\t$ " << felipe.balance() << "\n";
-	cout << "Rate of return:\t" << felipe.rate() * 100 << "%\n";
+		cout << "\t0. Exit\n";
+
+		cout << "\n";
+
+		cout << "Enter an option: ";
+		int option = -1;
+		cin >> option;
+
+		switch (option)
+		{
+		case 0:
+			return 0;
+		
+		default:
+			cout << "Invalid option!\n";
+		}
+
+		cout << "\n";
+	}
 }
