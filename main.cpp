@@ -1,13 +1,13 @@
 #include <iostream>
 using std::cout;
-#include "SpecialClient.hpp"
-using tabajaras_bank::SpecialClient;
+#include "SupremeClient.hpp"
+using tabajaras_bank::SupremeClient;
 
 int main()
 {
 	cout << "Client\n";
 
-	SpecialClient felipe("Felipe", "12345678901", 10000);
+	SupremeClient felipe("Felipe", "12345678901", 250000);
 
 	cout << "Name:\t\t" << felipe.name() << "\n";
 	cout << "ID:\t\t" << felipe.id() << "\n";
