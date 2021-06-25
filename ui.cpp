@@ -38,7 +38,9 @@ namespace tabajaras_bank
 			case 1:
 			{
 				Client* p_client = display_insert_client_screen(bank);
-				bank.insert_client(p_client);
+
+				if (p_client != nullptr)
+					bank.insert_client(p_client);
 			}
 				break;
 
@@ -174,6 +176,20 @@ namespace tabajaras_bank
 		case 3:
 			p_client = new SupremeClient(name, id, initial_balance);
 			break;
+		}
+
+		print_client(*p_client);
+
+		cout << "\n";
+
+		cout << "Do you want to insert this client? (y/n): ";
+		char answer = '\0';
+		cin >> answer;
+
+		if (answer == 'n')
+		{
+			delete p_client;
+			p_client = nullptr;
 		}
 
 		return p_client;
