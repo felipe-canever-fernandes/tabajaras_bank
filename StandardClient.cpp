@@ -8,6 +8,6 @@ namespace tabajaras_bank
 		std::string const& id,
 		double const balance
 	):
-		Client(name, id, balance)
+		Client(name, id, balance, 0.05)
 	{}
 }

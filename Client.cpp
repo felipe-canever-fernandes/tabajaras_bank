@@ -10,11 +10,13 @@ namespace tabajaras_bank
 	(
 		std::string const& name,
 		std::string const& id,
-		double const balance
+		double const balance,
+		double const rate
 	):
 		m_name(validate_name(name)),
 		m_id(validate_id(id)),
-		m_balance(validate_balance(balance))
+		m_balance(validate_balance(balance)),
+		m_rate(validate_rate(rate))
 	{}
 
 	std::string Client::name() const
@@ -47,6 +49,11 @@ namespace tabajaras_bank
 		m_balance = validate_balance(balance);
 	}
 
+	double Client::rate() const
+	{
+		return m_rate;
+	}
+
 	std::string Client::validate_name(std::string const& name)
 	{
 		// Check if not empty or only whitespace.
@@ -67,5 +74,11 @@ namespace tabajaras_bank
 	{
 		assert(balance >= 0);
 		return balance;
+	}
+
+	double Client::validate_rate(double const rate)
+	{
+		assert(rate >= 0);
+		return rate;
 	}
 }

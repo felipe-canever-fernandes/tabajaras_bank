@@ -12,4 +12,5 @@ int main()
 	cout << "Name:\t\t" << felipe.name() << "\n";
 	cout << "ID:\t\t" << felipe.id() << "\n";
 	cout << "Balance:\t$ " << felipe.balance() << "\n";
+	cout << "Rate of return:\t" << felipe.rate() * 100 << "%\n";
 }
