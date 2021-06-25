@@ -14,7 +14,7 @@ namespace tabajaras_bank
 			delete p_client;
 	}
 
-	Clients const Bank::clients() const
+	Clients const& Bank::clients() const
 	{
 		return m_clients;
 	}
