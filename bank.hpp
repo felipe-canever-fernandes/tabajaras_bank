@@ -15,6 +15,7 @@ namespace tabajaras_bank
 
 		Clients const clients() const;
 		void insert_client(Client* const p_client);
+		void remove_client(Client* const p_client);
 		bool client_exists(std::string const& id) const;
 
 	private:

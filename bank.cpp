@@ -4,6 +4,8 @@
 #include <regex>
 using std::regex_match;
 
+using std::begin;
+
 namespace tabajaras_bank
 {
 	Bank::~Bank()
@@ -23,6 +25,21 @@ namespace tabajaras_bank
 		assert(!client_exists(p_client->id()));
 
 		m_clients.push_back(p_client);
+	}
+
+	void Bank::remove_client(Client* const p_client)
+	{
+		assert(p_client != nullptr);
+		assert(client_exists(p_client->id()));
+
+		size_t i = 0;
+
+		for (; i < m_clients.size(); ++i)
+			if (m_clients[i] == p_client)
+				break;
+		
+		delete p_client;
+		m_clients.erase(begin(m_clients) + i);
 	}
 
 	bool Bank::client_exists(std::string const& id) const

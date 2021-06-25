@@ -23,6 +23,7 @@ namespace tabajaras_bank
 			cout << "\n";
 
 			cout << "\t1. Insert Client\n";
+			cout << "\t2. Remove Client\n";
 			cout << "\t0. Exit\n";
 
 			cout << "\n";
@@ -41,6 +42,15 @@ namespace tabajaras_bank
 
 				if (p_client != nullptr)
 					bank.insert_client(p_client);
+			}
+				break;
+			
+			case 2:
+			{
+				Client* p_client = display_remove_client_screen(bank);
+
+				if (p_client != nullptr)
+					bank.remove_client(p_client);
 			}
 				break;
 
@@ -191,6 +201,72 @@ namespace tabajaras_bank
 			delete p_client;
 			p_client = nullptr;
 		}
+
+		return p_client;
+	}
+
+	Client* display_remove_client_screen(Bank const& bank)
+	{
+		cout << "\t\tREMOVE CLIENT\n";
+
+		cout << "\n";
+
+		if (bank.clients().size() == 0)
+		{
+			cout << "No clients have been inserted.\n";
+			cout << "\n";
+			return nullptr;
+		}
+
+		int option = -1;
+
+		while (true)
+		{
+			for (size_t i = 0; i < bank.clients().size(); ++i)
+			{
+				cout << i + 1 << ".\n";
+				print_client(*bank.clients()[i]);
+				cout << "\n";
+			}
+
+			cout << "0. Cancel\n";
+
+			cout << "\n";
+
+			cout << "Enter an option: ";
+			cin >> option;
+
+			if (option >= 0 && option <= bank.clients().size())
+				break;
+			
+			cout << "Invalid option!\n";
+			cout << "\n";
+		}
+
+		if (option == 0)
+		{
+			cout << "\n";
+			return nullptr;
+		}
+
+		cout << "\n";
+
+		--option;
+
+		Client* p_client = bank.clients()[option];
+
+		print_client(*p_client);
+
+		cout << "\n";
+
+		cout << "Are you sure you want to remove this client? (y/n): ";
+		char answer = '\0';
+		cin >> answer;
+
+		if (answer == 'n')
+			p_client = nullptr;
+
+		cout << "\n";
 
 		return p_client;
 	}
