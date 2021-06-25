@@ -178,4 +178,26 @@ namespace tabajaras_bank
 
 		return p_client;
 	}
+
+	void print_client(Client const& client)
+	{
+		cout << "Name:\t\t" << client.name() << "\n";
+		cout << "ID:\t\t" << client.id() << "\n";
+
+		cout << "Type:\t\t";
+
+		if (dynamic_cast<StandardClient const*>(&client))
+			cout << "Standard";
+		else if (dynamic_cast<SpecialClient const*>(&client))
+			cout << "Special";
+		else if (dynamic_cast<SupremeClient const*>(&client))
+			cout << "Supreme";
+		else
+			cout << "Unknown";
+
+		cout << "\n";
+
+		cout << "Balance:\t$ " << client.balance() << "\n";
+		cout << "Rate of return:\t" << client.rate() * 100 << "%\n";
+	}
 }
