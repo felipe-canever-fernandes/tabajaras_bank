@@ -197,10 +197,10 @@ namespace tabajaras_bank
 
 	void print_client(Client const& client)
 	{
-		cout << "Name:\t\t" << client.name() << "\n";
-		cout << "ID:\t\t" << client.id() << "\n";
+		cout << "Name:\t\t\t" << client.name() << "\n";
+		cout << "ID:\t\t\t" << client.id() << "\n";
 
-		cout << "Type:\t\t";
+		cout << "Type:\t\t\t";
 
 		if (dynamic_cast<StandardClient const*>(&client))
 			cout << "Standard";
@@ -213,7 +213,12 @@ namespace tabajaras_bank
 
 		cout << "\n";
 
-		cout << "Balance:\t$ " << client.balance() << "\n";
-		cout << "Rate of return:\t" << client.rate() * 100 << "%\n";
+		cout << "Balance:\t\t$ " << client.balance() << "\n";
+		cout << "Rate of return:\t\t" << client.rate() * 100 << "%\n";
+
+		cout
+			<< "Balance next month:\t$ "
+			<< client.balance() * (1 + client.rate())
+			<< "\n";
 	}
 }
