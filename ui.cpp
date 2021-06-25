@@ -24,6 +24,7 @@ namespace tabajaras_bank
 
 			cout << "\t1. Insert Client\n";
 			cout << "\t2. Remove Client\n";
+			cout << "\t3. Search Client by Name\n";
 			cout << "\t0. Exit\n";
 
 			cout << "\n";
@@ -52,6 +53,10 @@ namespace tabajaras_bank
 				if (p_client != nullptr)
 					bank.remove_client(p_client);
 			}
+				break;
+			
+			case 3:
+				display_search_client_by_name_screen(bank);
 				break;
 
 			case 0:
@@ -269,6 +274,48 @@ namespace tabajaras_bank
 		cout << "\n";
 
 		return p_client;
+	}
+
+	void display_search_client_by_name_screen(Bank const& bank)
+	{
+		cout << "\t\tSEARCH CLIENT BY NAME\n";
+
+		cout << "\n";
+
+		if (bank.clients().size() == 0)
+		{
+			cout << "No clients have been inserted.\n";
+			cout << "\n";
+			return;
+		}
+
+		cout << "Search: ";
+		std::string search;
+		cin.ignore();
+		getline(cin, search);
+
+		cout << "\n";
+
+		Clients const results = bank.find_clients_by_name(search);
+
+		if (results.size() == 0)
+		{
+			cout << "No clients match your search.\n";
+		}
+		else
+		{
+			cout << results.size() << " clients match your search.\n";
+
+			cout << "\n";
+
+			for (Client const* const p_client : results)
+			{
+				print_client(*p_client);
+				cout << "\n";
+			}
+		}
+
+		cout << "\n";
 	}
 
 	void print_client(Client const& client)

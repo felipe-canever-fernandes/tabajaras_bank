@@ -9,6 +9,7 @@ namespace tabajaras_bank
 
 	Client* display_insert_client_screen(Bank const& bank);
 	Client* display_remove_client_screen(Bank const& bank);
+	void display_search_client_by_name_screen(Bank const& bank);
 
 	void print_client(Client const& client);
 }

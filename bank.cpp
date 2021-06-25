@@ -53,4 +53,15 @@ namespace tabajaras_bank
 		
 		return false;
 	}
+
+	Clients Bank::find_clients_by_name(std::string const& name) const
+	{
+		Clients clients;
+
+		for (Client* const p_client : m_clients)
+			if (p_client->name().find(name) != std::string::npos)
+				clients.push_back(p_client);
+		
+		return clients;
+	}
 }
